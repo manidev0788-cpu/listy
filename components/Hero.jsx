@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SearchableSelect } from "@/components/SearchableSelect";
 import { CATEGORIES } from "@/lib/categories";
+import { FEATURED_CATEGORIES_NAV } from "@/lib/featuredCategories";
 import { LOCATIONS } from "@/lib/locations";
 
 const slides = [
@@ -32,25 +33,6 @@ const rotatingWords = [
   "Hotels",
   "Activities",
   "Events",
-];
-
-const featuredCategories = [
-  {
-    name: "Eat & Drink",
-    href: "/listings?category=Restaurant",
-    icon: CutleryIcon,
-  },
-  {
-    name: "Apartments",
-    href: "/listings?category=Apartments",
-    icon: HomeIcon,
-  },
-  {
-    name: "Services",
-    href: "/listings?category=Services",
-    icon: BriefcaseIcon,
-  },
-  { name: "Events", href: "/listings?category=Events", icon: MusicIcon },
 ];
 
 export function Hero() {
@@ -196,20 +178,19 @@ export function Hero() {
         <div className="mt-10 flex flex-col items-center gap-4">
           <p className="text-sm text-white/85">Or browse featured categories:</p>
           <ul className="flex flex-wrap items-center justify-center gap-3">
-            {featuredCategories.map((cat) => {
-              const Icon = cat.icon;
-              return (
-                <li key={cat.name}>
-                  <Link
-                    href={cat.href}
-                    className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/25 backdrop-blur-sm transition-colors hover:bg-white/25"
-                  >
-                    <Icon />
-                    {cat.name}
-                  </Link>
-                </li>
-              );
-            })}
+            {FEATURED_CATEGORIES_NAV.map((cat) => (
+              <li key={cat.slug}>
+                <Link
+                  href={`/categories/${cat.slug}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/25 backdrop-blur-sm transition-colors hover:bg-white/25"
+                >
+                  <span aria-hidden className="text-base leading-none">
+                    {cat.emoji}
+                  </span>
+                  {cat.shortLabel || cat.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -334,94 +315,3 @@ function SearchIcon() {
   );
 }
 
-function CutleryIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M6 3v7a2 2 0 0 0 2 2v9M10 3v7a2 2 0 0 1-2 2M18 3c-1.5 0-3 2-3 5s1.5 4 3 4v9"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function HomeIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="m3 11 9-8 9 8v9a2 2 0 0 1-2 2h-4v-6H10v6H6a2 2 0 0 1-2-2v-9Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function BriefcaseIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <rect
-        x="3"
-        y="7"
-        width="18"
-        height="13"
-        rx="2"
-        stroke="currentColor"
-        strokeWidth="1.7"
-      />
-      <path
-        d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function MusicIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M9 18V5l12-2v13"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="18" cy="16" r="3" stroke="currentColor" strokeWidth="1.7" />
-    </svg>
-  );
-}

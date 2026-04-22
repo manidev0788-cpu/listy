@@ -9,10 +9,11 @@ import { AuthModal } from "@/components/AuthModal";
 
 const navItems = [
   { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Categories", href: "/categories" },
   { label: "View All Listings", href: "/listings" },
-  { label: "Job Pages", href: "/job-pages" },
-  { label: "Pages", href: "/pages" },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function UserIcon({ className }) {

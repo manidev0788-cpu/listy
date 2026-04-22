@@ -3,6 +3,8 @@ import { Categories } from "@/components/Categories";
 import { HappeningCities } from "@/components/HappeningCities";
 import { ShowBestOfBusiness } from "@/components/ShowBestOfBusiness";
 import { JoinCommunity } from "@/components/JoinCommunity";
+import { Testimonials } from "@/components/Testimonials";
+import { SubscribeSection } from "@/components/SubscribeSection";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <HappeningCities />
       <ShowBestOfBusiness />
       <JoinCommunity />
+      <Testimonials />
+      <SubscribeSection />
     </>
   );
 }

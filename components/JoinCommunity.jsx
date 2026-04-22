@@ -3,7 +3,7 @@ import Link from "next/link";
 export function JoinCommunity() {
   return (
     <section
-      className="relative w-full overflow-hidden bg-cover bg-fixed bg-center bg-no-repeat"
+      className="relative h-[600px] min-h-[600px] w-full overflow-hidden bg-cover bg-fixed bg-center bg-no-repeat"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80')",
@@ -11,7 +11,7 @@ export function JoinCommunity() {
     >
       <div aria-hidden className="absolute inset-0 bg-black/55" />
 
-      <div className="relative mx-auto max-w-[1200px] px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8">
+      <div className="relative mx-auto flex h-full max-w-[1200px] items-center px-4 py-8 sm:px-6 lg:px-8">
         <div className="max-w-md">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Join Our Community

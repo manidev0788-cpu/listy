@@ -1,23 +1,20 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { getFooterCategoryLinks } from "@/lib/featuredCategories";
 
 const ACCENT = "#2ed2c3";
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "About Us", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Add Listing", href: "/add-listing" },
   { name: "Contact", href: "/contact" },
 ];
 
-const categories = [
-  { name: "Automotive", href: "/category/automotive" },
-  { name: "Beauty & Spa", href: "/category/beauty-spa" },
-  { name: "Hotel", href: "/category/hotel" },
-  { name: "Real Estate", href: "/category/real-estate" },
-  { name: "Restaurant", href: "/category/restaurant" },
-  { name: "Shopping", href: "/category/shopping" },
+const categoryLinks = [
+  { name: "All categories", href: "/categories" },
+  ...getFooterCategoryLinks(),
 ];
 
 const socials = [
@@ -74,8 +71,8 @@ export function Footer() {
               style={{ backgroundColor: ACCENT }}
             />
             <ul className="mt-5 space-y-3">
-              {categories.map((cat) => (
-                <li key={cat.name}>
+              {categoryLinks.map((cat) => (
+                <li key={`${cat.href}-${cat.name}`}>
                   <FooterLink href={cat.href}>{cat.name}</FooterLink>
                 </li>
               ))}
@@ -173,7 +170,7 @@ export function Footer() {
           <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <li>
               <Link
-                href="/privacy"
+                href="/privacy-policy"
                 className="transition-opacity hover:opacity-80"
                 style={{ color: ACCENT }}
               >
@@ -191,7 +188,7 @@ export function Footer() {
             </li>
             <li>
               <Link
-                href="/cookies"
+                href="/cookie-policy"
                 className="transition-opacity hover:opacity-80"
                 style={{ color: ACCENT }}
               >

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Listfy">
+  <rect width="32" height="32" rx="9" fill="rgb(46, 210, 195)"/>
+  <circle cx="10" cy="10" r="2" fill="#ffffff"/>
+  <circle cx="10" cy="16" r="2" fill="#ffffff"/>
+  <circle cx="10" cy="22" r="2" fill="#ffffff"/>
+  <rect x="15" y="9" width="11" height="2.25" rx="1.125" fill="#ffffff"/>
+  <rect x="15" y="14.875" width="8" height="2.25" rx="1.125" fill="#ffffff"/>
+  <rect x="15" y="20.75" width="11" height="2.25" rx="1.125" fill="#ffffff"/>
+</svg>

@@ -338,7 +338,7 @@ export default function AddListingPage() {
             </a>{" "}
             and{" "}
             <a
-              href="/privacy"
+              href="/privacy-policy"
               style={{ color: ACCENT }}
               className="hover:underline"
             >
